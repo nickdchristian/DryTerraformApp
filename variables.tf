@@ -14,14 +14,6 @@ variable "environment" {
   description = "The environment where the application is running in"
   type    = string
 }
-variable "files_bucket_name" {
-  description = "Name of the bucket where files are stored"
-  type    = string
-}
-variable "files_table_name" {
-  description = "Name of the table where the record of files are stored"
-  type    = string
-}
 variable "slack_channel_id" {
   description = "The ID of the Slack channel. To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ."
 }
