@@ -17,3 +17,6 @@ variable "environment" {
 variable "sns_alert_topic_arn" {
   type = string
 }
+variable "sns_okay_topic_arn" {
+  type = string
+}

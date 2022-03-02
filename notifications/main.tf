@@ -13,7 +13,7 @@ resource "aws_cloudformation_stack" "chatbot_slack_configuration" {
     LoggingLevelParameter      = var.logging_level
     SlackChannelIdParameter    = var.slack_channel_id
     SlackWorkspaceIdParameter  = var.slack_workspace_id
-    SnsTopicArnsParameter      = join(",", [aws_sns_topic.alert.arn])
+    SnsTopicArnsParameter      = join(",", [aws_sns_topic.alert.arn, aws_sns_topic.okay.arn])
     GuardrailPoliciesParameter = "arn:aws:iam::aws:policy/ReadOnlyAccess"
     UserRoleRequiredParameter = false
 
@@ -68,6 +68,10 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_sns_topic" "alert" {
-  name = "${var.application_name}-${var.environment}-ops-topic"
+  name = "${var.application_name}-${var.environment}-alert-topic"
+}
+
+resource "aws_sns_topic" "okay" {
+  name = "${var.application_name}-${var.environment}-okay-topic"
 }
 

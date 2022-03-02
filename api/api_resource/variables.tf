@@ -30,3 +30,6 @@ variable "lambda_iam_policy" {
 variable "sns_alert_topic_arn" {
   type = string
 }
+variable "sns_okay_topic_arn" {
+  type = string
+}

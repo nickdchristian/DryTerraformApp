@@ -65,6 +65,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_duration" {
   alarm_description   = "Alarm to check if ${aws_lambda_function.this.function_name} duration is too high"
   treat_missing_data  = "ignore"
   alarm_actions       = [var.sns_alert_topic_arn]
+  ok_actions          = [var.sns_okay_topic_arn]
 
   dimensions = {
     Resource = aws_lambda_function.this.qualified_arn
@@ -83,6 +84,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_errors" {
   alarm_description   = "Alarm to check if ${aws_lambda_function.this.function_name} has errored"
   treat_missing_data  = "ignore"
   alarm_actions       = [var.sns_alert_topic_arn]
+  ok_actions          = [var.sns_okay_topic_arn]
 
   dimensions = {
     Resource = aws_lambda_function.this.qualified_arn
@@ -101,6 +103,7 @@ resource "aws_cloudwatch_metric_alarm" "throttle_count" {
   threshold           = "1"
   treat_missing_data  = "ignore"
   alarm_actions       = [var.sns_alert_topic_arn]
+  ok_actions          = [var.sns_okay_topic_arn]
 
   dimensions = {
     Resource = aws_lambda_function.this.qualified_arn

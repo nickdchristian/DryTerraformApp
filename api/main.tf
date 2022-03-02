@@ -15,6 +15,7 @@ module "app_function_api_resource" {
   environmental_variables = {}
   lambda_iam_policy   = data.aws_iam_policy_document.app_function_policy.json
   sns_alert_topic_arn = var.sns_alert_topic_arn
+  sns_okay_topic_arn = var.sns_okay_topic_arn
 }
 
 
