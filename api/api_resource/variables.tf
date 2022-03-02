@@ -9,8 +9,10 @@ variable "environment" {
 }
 
 variable "environmental_variables" {
-  description = "Map of AWS Lambda environmental variables for the function"
-  type        = map(string)
+  type = object({
+    variables = map(string)
+  })
+  default = null
 }
 
 variable "api_resource_name" {
