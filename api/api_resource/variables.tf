@@ -8,13 +8,6 @@ variable "environment" {
   type        = string
 }
 
-variable "environmental_variables" {
-  type = object({
-    variables = map(string)
-  })
-  default = null
-}
-
 variable "api_resource_name" {
   description = "Name of the resource for the API. Must be one word and lowercase"
   type        = string

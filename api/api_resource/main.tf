@@ -39,13 +39,6 @@ resource "aws_lambda_function" "this" {
   publish          = true
 
   runtime = "python3.9"
-
-  dynamic "environment" {
-    for_each = var.environmental_variables == null ? [] : [var.environmental_variables]
-    content {
-      variables = environmental_variables.value.variables
-    }
-  }
 }
 
 resource "aws_lambda_alias" "this" {
